@@ -73,22 +73,39 @@ const Game = () => {
 
   const handleNextWord = () => {
     const isCorrect = resultMessage.includes(translate('correctMessage').split('!')[0]);
+    const currentWord = words[currentWordIndex].word;
     
-    // Se não acertou, contabiliza como erro
-    if (!isCorrect && resultMessage !== '') {
+    if (isCorrect) {
+      // Se acertou, segue direto
+      proceedToNext();
+    } else {
+      // Se não acertou, contabiliza como erro e mostra mensagem de skip
       setIncorrectAnswers(prev => prev + 1);
+      if (resultMessage === '' && userInput.trim() === '') {
+        // Palavra pulada sem tentar
+        setResultMessage(translate('skipMessage', { word: currentWord }));
+        setMessageColor('orange');
+      } else {
+        // Palavra errada, mostra skip message
+        setResultMessage(translate('skipMessage', { word: currentWord }));
+        setMessageColor('orange');
+      }
+      
+      setTimeout(() => {
+        proceedToNext();
+      }, 2000);
     }
-    
+  };
+  
+  const proceedToNext = () => {
     const nextIndex = currentWordIndex + 1;
     
     if (nextIndex >= words.length) {
       setGameEnded(true);
-      const finalCorrect = isCorrect ? correctAnswers + 1 : correctAnswers;
-      const finalIncorrect = isCorrect ? incorrectAnswers : incorrectAnswers + 1;
       setResultMessage(translate('gameEndMessage', { 
-        correct: finalCorrect, 
+        correct: correctAnswers, 
         total: totalWords,
-        incorrect: finalIncorrect
+        incorrect: incorrectAnswers
       }));
       setMessageColor('blue');
       return;
@@ -99,7 +116,6 @@ const Game = () => {
     setResultMessage('');
     setMessageColor('');
     setKeyboardDisabled(false);
-    setNextButtonDisabled(false); // Sempre permitir avançar
   };
 
   const toggleRandomMode = () => {
