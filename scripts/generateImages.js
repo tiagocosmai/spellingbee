@@ -95,31 +95,31 @@ const gradients = {
   food: ['#43e97b', '#38f9d7']
 };
 
-// Emojis específicos por palavra
+// Emojis específicos por palavra (melhorados para representar significados reais)
 const specificEmojis = {
   // Aparência
-  'portrait': '👤', 'self-portrait': '🤳', 'dna': '🧬', 'blue eyes': '👁️', 'moustache': '🧔',
-  'curly hair': '💇', 'thin': '🧍', 'green eyes': '👁️', 'blond hair': '👱', 'fat': '🧍',
-  'beard': '🧔', 'straight hair': '💇', 'grey hair': '👨‍🦳', 'long hair': '💇‍♀️', 'short hair': '💇‍♂️',
-  'tall': '🧍‍♂️', 'short': '🧍', 'brown eyes': '👁️', 'brown hair': '💇', 'young': '👶',
-  'old': '👴', 'weak': '💪', 'strong': '💪', 'beautiful': '🌟', 'ugly': '😅',
+  'portrait': '🖼️', 'self-portrait': '🤳', 'dna': '🧬', 'blue eyes': '🔵👁️', 'moustache': '🥸',
+  'curly hair': '🌀', 'thin': '🪶', 'green eyes': '🟢👁️', 'blond hair': '☀️', 'fat': '🎈',
+  'beard': '🧔‍♂️', 'straight hair': '📏', 'grey hair': '⚪', 'long hair': '🎀', 'short hair': '✂️',
+  'tall': '🦒', 'short': '🐿️', 'brown eyes': '🟤👁️', 'brown hair': '🌰', 'young': '👶',
+  'old': '👴', 'weak': '🪶', 'strong': '💪', 'beautiful': '👸', 'ugly': '👹',
   
   // Casa
-  'upstairs': '⬆️', 'downstairs': '⬇️', 'basement': '🏠', 'floor': '🏠', 'lift': '🛗',
+  'upstairs': '⬆️', 'downstairs': '⬇️', 'basement': '🕳️', 'floor': '🟫', 'lift': '🛗',
   'internet': '🌐', 'fan': '🌀', 'shower': '🚿', 'stairs': '🪜', 'broom': '🧹',
-  'board games': '🎲', 'tall apartment building': '🏢', 'oxygen': '💨', 'water': '💧',
-  'gravity': '🌍', 'plants': '🪴', 'animals': '🐾',
+  'board games': '🎲', 'tall apartment building': '🏢', 'oxygen': '🫁', 'water': '💧',
+  'gravity': '⬇️', 'plants': '🌱', 'animals': '🦁',
   
   // Tempo/Arte
-  'day': '🌅', 'night': '🌙', 'aging': '⏰', 'schedule': '📅', 'sandglass': '⏳',
+  'day': '☀️', 'night': '🌙', 'aging': '👶➡️👴', 'schedule': '📅', 'sandglass': '⏳',
   'four seasons': '🍂', 'birthday': '🎂', 'pottery': '🏺', 'architecture': '🏛️',
-  'sculpture': '🗿', 'maths': '🔢', 'sport': '⚽',
+  'sculpture': '🗿', 'maths': '🔢', 'sport': '🏃‍♂️',
   
   // Comida/Ações
-  'picnic': '🧺', 'cheese': '🧀', 'glass': '🥤', 'lemonade': '🍋', 'butter': '🧈',
+  'picnic': '🧺', 'cheese': '🧀', 'glass': '🥛', 'lemonade': '🍋', 'butter': '🧈',
   'spoon': '🥄', 'sandwich': '🥪', 'plate': '🍽️', 'fork': '🍴', 'salad': '🥗',
-  'bowl': '🥣', 'knife': '🔪', 'dance': '💃', 'monday': '📅', 'wednesday': '📅',
-  'read': '📚', 'roast': '🔥', 'heat': '🔥', 'grind': '⚙️', 'brew': '☕', 'age': '⏰'
+  'bowl': '🥣', 'knife': '🔪', 'dance': '💃', 'monday': '1️⃣', 'wednesday': '3️⃣',
+  'read': '📖', 'roast': '🔥', 'heat': '🌡️', 'grind': '⚙️', 'brew': '☕', 'age': '👶➡️👴'
 };
 
 // Função para criar SVG (SEM LEGENDAS - apenas visual)

@@ -10,6 +10,6 @@
   <circle cx="240" cy="160" r="18" fill="rgba(255,255,255,0.1)"/>
   <circle cx="270" cy="30" r="8" fill="rgba(255,255,255,0.1)"/>
   <circle cx="30" cy="170" r="10" fill="rgba(255,255,255,0.1)"/>
-  <text x="150" y="120" font-family="Arial, sans-serif" font-size="64" text-anchor="middle" fill="white" filter="drop-shadow(2px 2px 4px rgba(0,0,0,0.3))">💇‍♂️</text>
+  <text x="150" y="120" font-family="Arial, sans-serif" font-size="64" text-anchor="middle" fill="white" filter="drop-shadow(2px 2px 4px rgba(0,0,0,0.3))">✂️</text>
   <rect x="8" y="8" width="284" height="184" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3" rx="12"/>
 </svg>
