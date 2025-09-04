@@ -1,8 +1,11 @@
 {
   "name": "spelling-bee-game",
   "version": "1.0.0",
-  "description": "A Spelling Bee game built with React",
+  "description": "English Learning Hub - Interactive Spelling Bee Game and Flashcards built with React",
   "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
