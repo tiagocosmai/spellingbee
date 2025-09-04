@@ -47,12 +47,38 @@ body {
   min-width: 200px;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
 .tabs-container {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   flex-wrap: wrap;
-  flex-shrink: 0;
+}
+
+.language-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.language-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
 }
 
 .tab-button {
@@ -294,12 +320,22 @@ body {
     margin: 0 15px;
   }
   
-  .tabs-container {
+  .header-controls {
     order: 3;
     justify-content: center;
-    gap: 8px;
     width: 100%;
     margin-top: 10px;
+    gap: 10px;
+  }
+  
+  .tabs-container {
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .language-button {
+    font-size: 0.8em;
+    padding: 6px 10px;
   }
   
   .tab-content {
@@ -366,11 +402,22 @@ body {
     text-align: center;
   }
   
-  .tabs-container {
+  .header-controls {
     order: 3;
     justify-content: center;
-    gap: 6px;
+    flex-direction: column;
     width: 100%;
+    gap: 8px;
+  }
+  
+  .tabs-container {
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .language-button {
+    font-size: 0.75em;
+    padding: 5px 8px;
   }
   
   .tab-content {
@@ -470,6 +517,11 @@ body {
     padding: 5px 10px;
     font-size: 0.75em;
     min-width: 60px;
+  }
+  
+  .language-button {
+    font-size: 0.7em;
+    padding: 4px 6px;
   }
   
   .control-button {

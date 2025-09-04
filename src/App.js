@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import Game from './Game';
 import Cards from './Cards';
+import { LanguageProvider, useLanguage } from './LanguageContext';
 
-const App = () => {
+const AppContent = () => {
   const [activeTab, setActiveTab] = useState('game');
+  const { translate, toggleLanguage } = useLanguage();
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -25,20 +27,30 @@ const App = () => {
           alt="Logo Educa Portinari" 
           className="app-logo"
         />
-        <h1 className="app-title">English Learning Hub</h1>
+        <h1 className="app-title">{translate('appTitle')}</h1>
         
-        <div className="tabs-container">
+        <div className="header-controls">
+          <div className="tabs-container">
+            <button 
+              className={`tab-button ${activeTab === 'game' ? 'active' : ''}`}
+              onClick={() => setActiveTab('game')}
+            >
+              {translate('gameTab')}
+            </button>
+            <button 
+              className={`tab-button ${activeTab === 'cards' ? 'active' : ''}`}
+              onClick={() => setActiveTab('cards')}
+            >
+              {translate('cardsTab')}
+            </button>
+          </div>
+          
           <button 
-            className={`tab-button ${activeTab === 'game' ? 'active' : ''}`}
-            onClick={() => setActiveTab('game')}
+            className="language-button"
+            onClick={toggleLanguage}
+            title="Change Language / Mudar Idioma"
           >
-            🎮 Spelling Bee Game
-          </button>
-          <button 
-            className={`tab-button ${activeTab === 'cards' ? 'active' : ''}`}
-            onClick={() => setActiveTab('cards')}
-          >
-            📚 Flashcards
+            {translate('languageButton')}
           </button>
         </div>
       </div>
@@ -47,6 +59,14 @@ const App = () => {
         {renderTabContent()}
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 
