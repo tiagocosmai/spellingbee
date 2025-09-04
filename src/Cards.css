@@ -14,20 +14,24 @@
 }
 
 .cards-header h1 {
-  color: #333;
+  color: #ffffff;
   font-size: 2.2em;
   margin-bottom: 10px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  font-weight: bold;
 }
 
 .cards-subtitle {
-  color: #666;
+  color: #ffffff;
   font-size: 1.1em;
   margin-bottom: 15px;
   line-height: 1.5;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-weight: 500;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
 .cards-info {
@@ -101,10 +105,12 @@
 
 .card-content h2 {
   font-size: 1.8em;
-  color: #333;
+  color: #2c3e50;
   margin: 0;
   word-wrap: break-word;
   line-height: 1.3;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .spelling h2 {
@@ -221,6 +227,7 @@
   
   .cards-subtitle {
     font-size: 1em;
+    padding: 8px 15px;
   }
   
   .flashcard {
@@ -271,11 +278,14 @@
   .cards-header h1 {
     font-size: 1.4em;
     margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
   }
   
   .cards-subtitle {
     font-size: 0.9em;
     margin-bottom: 12px;
+    padding: 6px 12px;
+    font-weight: 600;
   }
   
   .cards-info {
@@ -347,6 +357,12 @@
 @media (max-width: 360px) {
   .cards-header h1 {
     font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  .cards-subtitle {
+    font-size: 0.8em;
+    padding: 5px 10px;
   }
   
   .flashcard {

@@ -75,45 +75,71 @@
 @media (max-width: 768px) {
   .virtual-keyboard {
     padding: 15px;
-    gap: 6px;
+    gap: 8px;
+    max-width: 100%;
   }
   
   .keyboard-key {
-    min-width: 30px;
-    height: 40px;
+    min-width: 32px;
+    height: 42px;
     font-size: 14px;
     padding: 6px;
+    flex: 1;
+    max-width: 45px;
   }
   
   .keyboard-row {
-    gap: 3px;
+    gap: 4px;
+    justify-content: center;
+    max-width: 100%;
   }
   
   .space-key {
-    min-width: 100px;
-    font-size: 12px;
+    min-width: 110px;
+    font-size: 13px;
+    flex: none;
   }
   
   .backspace-key {
-    min-width: 50px;
+    min-width: 55px;
     font-size: 16px;
+    flex: none;
   }
 }
 
 @media (max-width: 480px) {
+  .virtual-keyboard {
+    padding: 10px;
+    gap: 6px;
+  }
+  
   .keyboard-key {
-    min-width: 25px;
-    height: 35px;
-    font-size: 12px;
-    padding: 4px;
+    min-width: 28px;
+    height: 38px;
+    font-size: 13px;
+    padding: 4px 2px;
+    flex: 1;
+    max-width: 38px;
+  }
+  
+  .keyboard-row {
+    gap: 3px;
+    justify-content: center;
   }
   
   .space-key {
-    min-width: 80px;
+    min-width: 90px;
+    font-size: 12px;
+    padding: 4px 8px;
   }
   
   .backspace-key {
-    min-width: 40px;
+    min-width: 45px;
     font-size: 14px;
+    padding: 4px 6px;
+  }
+  
+  .keyboard-controls {
+    margin-top: 6px;
   }
 }

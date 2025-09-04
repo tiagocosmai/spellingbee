@@ -33,14 +33,11 @@ body {
 }
 
 .app-title {
-  color: #333;
+  color: #2c3e50;
   margin: 0 0 20px 0;
   font-size: 1.8em;
-  font-weight: 600;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .tabs-container {
@@ -173,8 +170,9 @@ body {
 .instruction {
   margin: 15px 0 10px 0;
   font-size: 1.1em;
-  color: #555;
-  font-weight: 500;
+  color: #2c3e50;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
 }
 
 
