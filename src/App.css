@@ -1,19 +1,92 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin: 0;
-  padding: 10px;
+  padding: 0;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
-.game-container {
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px;
   text-align: center;
-  background-color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.app-title {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 1.8em;
+  font-weight: 600;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+  color: #495057;
+  border: 2px solid transparent;
+}
+
+.tab-button.active {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.tab-button:hover:not(.active) {
+  background: linear-gradient(45deg, #dee2e6, #e9ecef);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.game-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -25,14 +98,6 @@ body {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
-}
 
 .game-info {
   display: flex;
@@ -112,18 +177,6 @@ body {
   font-weight: 500;
 }
 
-.logo {
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
-h1 {
-  color: #333;
-  margin: 0;
-  font-size: 1.8em;
-}
 
 #word-image {
   width: 100%;
@@ -216,21 +269,34 @@ h1 {
 
 /* Responsive design - Tablet */
 @media (max-width: 768px) {
-  body {
-    padding: 5px;
+  .app-header {
+    padding: 15px;
   }
   
-  .game-container {
+  .app-logo {
+    max-width: 140px;
+  }
+  
+  .app-title {
+    font-size: 1.4em;
+  }
+  
+  .tab-content {
+    padding: 15px;
+  }
+  
+  .game-content {
     padding: 15px;
     margin: 5px;
   }
   
-  .logo {
-    max-width: 140px;
+  .tab-button {
+    padding: 10px 18px;
+    font-size: 0.9em;
   }
   
-  h1 {
-    font-size: 1.4em;
+  .tabs-container {
+    gap: 10px;
   }
   
   .game-info {
@@ -266,29 +332,37 @@ h1 {
 
 /* Responsive design - Smartphone */
 @media (max-width: 480px) {
-  body {
-    padding: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  .app-header {
+    padding: 12px;
   }
   
-  .game-container {
+  .app-logo {
+    max-width: 100px;
+  }
+  
+  .app-title {
+    font-size: 1.1em;
+    margin: 8px 0 15px 0;
+  }
+  
+  .tab-content {
+    padding: 10px;
+  }
+  
+  .game-content {
     padding: 12px;
     margin: 2px;
     border-radius: 12px;
   }
   
-  .logo {
-    max-width: 100px;
+  .tab-button {
+    padding: 8px 14px;
+    font-size: 0.8em;
+    margin: 2px;
   }
   
-  h1 {
-    font-size: 1.1em;
-    margin: 8px 0;
-  }
-  
-  .header {
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+  .tabs-container {
+    gap: 8px;
   }
   
   .game-info {
@@ -353,16 +427,26 @@ h1 {
 
 /* Extra small screens */
 @media (max-width: 360px) {
-  .game-container {
-    padding: 8px;
+  .app-header {
+    padding: 10px;
   }
   
-  .logo {
+  .app-logo {
     max-width: 80px;
   }
   
-  h1 {
+  .app-title {
     font-size: 1em;
+  }
+  
+  .game-content {
+    padding: 8px;
+  }
+  
+  .tab-button {
+    padding: 6px 10px;
+    font-size: 0.7em;
+    min-width: 70px;
   }
   
   .control-button {
