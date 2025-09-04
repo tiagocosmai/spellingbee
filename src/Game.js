@@ -20,7 +20,7 @@ const Game = () => {
   const [resultMessage, setResultMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
   const [keyboardDisabled, setKeyboardDisabled] = useState(false);
-  const [nextButtonDisabled, setNextButtonDisabled] = useState(true);
+  const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
   const [gameEnded, setGameEnded] = useState(false);
   const [isRandomMode, setIsRandomMode] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
