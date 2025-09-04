@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import VirtualKeyboard from './VirtualKeyboard';
 import WordImage from './WordImage';
 import { getAllWords, shuffleArray } from './wordsData';
+import { useLanguage } from './LanguageContext';
 
 const Game = () => {
+  const { translate } = useLanguage();
+  
   const originalWords = getAllWords().map(word => ({
     word: word.en.toLowerCase(),
     image: word.image,
@@ -30,13 +33,13 @@ const Game = () => {
     const correctWord = words[currentWordIndex].word.toLowerCase();
 
     if (userGuess === correctWord) {
-      setResultMessage('Correto! Pressione "Próxima Palavra" para continuar.');
+      setResultMessage(translate('correctMessage'));
       setMessageColor('green');
       setKeyboardDisabled(true);
       setNextButtonDisabled(false);
       setCorrectAnswers(prev => prev + 1);
     } else if (userGuess.length >= correctWord.length) {
-      setResultMessage(`Incorreto. A palavra era: "${correctWord}". Tente novamente.`);
+      setResultMessage(translate('incorrectMessage', { word: correctWord }));
       setMessageColor('red');
       setKeyboardDisabled(false);
       setNextButtonDisabled(true);
@@ -68,12 +71,15 @@ const Game = () => {
   };
 
   const handleNextWord = () => {
-    if (resultMessage.includes('Correto!')) {
+    if (resultMessage.includes(translate('correctMessage').split('!')[0])) {
       const nextIndex = currentWordIndex + 1;
       
       if (nextIndex >= words.length) {
         setGameEnded(true);
-        setResultMessage(`Fim do jogo! Parabéns! Você acertou ${correctAnswers + 1} de ${totalWords} palavras.`);
+        setResultMessage(translate('gameEndMessage', { 
+          correct: correctAnswers + 1, 
+          total: totalWords 
+        }));
         setMessageColor('blue');
         return;
       }
@@ -85,7 +91,7 @@ const Game = () => {
       setKeyboardDisabled(false);
       setNextButtonDisabled(true);
     } else {
-      setResultMessage('Você precisa acertar a palavra antes de avançar.');
+      setResultMessage(translate('needCorrectMessage'));
       setMessageColor('orange');
     }
   };
@@ -139,7 +145,7 @@ const Game = () => {
             className="control-button restart-button"
             onClick={restartGame}
           >
-            🔄 Jogar Novamente
+{translate('playAgainButton')}
           </button>
         </div>
       </div>
@@ -152,7 +158,7 @@ const Game = () => {
     <div className="game-content">
       <div className="game-info">
         <span className="word-counter">{currentWordIndex + 1}/{totalWords}</span>
-        <span className="score">Acertos: {correctAnswers}</span>
+        <span className="score">{translate('scoreLabel')}{correctAnswers}</span>
       </div>
       
       <div className="game-controls">
@@ -160,17 +166,17 @@ const Game = () => {
           className={`control-button mode-button ${isRandomMode ? 'active' : ''}`}
           onClick={toggleRandomMode}
         >
-          {isRandomMode ? '🔀 Modo Aleatório' : '📋 Modo Sequencial'}
+{isRandomMode ? translate('randomModeButton') : translate('sequentialModeButton')}
         </button>
         <button 
           className="control-button restart-button"
           onClick={restartGame}
         >
-          🔄 Reiniciar
+{translate('restartButton')}
         </button>
       </div>
       
-      <p className="instruction">Veja a imagem e soletre a palavra.</p>
+      <p className="instruction">{translate('gameInstruction')}</p>
       
       <WordImage
         word={currentWord.word}
@@ -181,7 +187,7 @@ const Game = () => {
       
       <div className="input-display">
         <div className="typed-word">
-          {userInput || 'Clique nas letras para formar a palavra...'}
+{userInput || translate('typeHint')}
         </div>
       </div>
       
@@ -205,7 +211,7 @@ const Game = () => {
         onClick={handleNextWord}
         disabled={nextButtonDisabled}
       >
-        Próxima Palavra
+{translate('nextWordButton')}
       </button>
     </div>
   );

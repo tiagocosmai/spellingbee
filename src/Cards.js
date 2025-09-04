@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Cards.css';
 import { getAllWords } from './wordsData';
+import { useLanguage } from './LanguageContext';
 
 const Cards = () => {
+  const { translate } = useLanguage();
   const cards = getAllWords();
 
   const [current, setCurrent] = useState(0);
@@ -109,7 +111,8 @@ const Cards = () => {
   const toggleMode = () => {
     const newMode = mode === "treino" ? "desafio" : "treino";
     setMode(newMode);
-    alert(`Modo: ${newMode.toUpperCase()}`);
+    const modeText = newMode === "treino" ? translate('trainMode') : translate('challengeMode');
+    alert(`${translate('modeIndicator', { mode: modeText })}`);
   };
 
   const handleCardClick = () => {
@@ -180,13 +183,15 @@ const Cards = () => {
   return (
     <div className="cards-container">
       <div className="cards-header">
-        <h1>Flashcards Interativos</h1>
+        <h1>{translate('cardsTitle')}</h1>
         <p className="cards-subtitle">
-          Clique no card para ouvir a pronúncia, a soletração e depois ver a tradução.
+          {translate('cardsSubtitle')}
         </p>
         <div className="cards-info">
           <span className="card-counter">{current + 1}/{cards.length}</span>
-          <span className="mode-indicator">Modo: {mode.toUpperCase()}</span>
+          <span className="mode-indicator">{translate('modeIndicator', { 
+            mode: mode === "treino" ? translate('trainMode') : translate('challengeMode')
+          })}</span>
         </div>
       </div>
 
@@ -203,7 +208,7 @@ const Cards = () => {
           onClick={prevCard}
           disabled={isSpelling}
         >
-          ← Anterior
+          {translate('previousButton')}
         </button>
         
         <button 
@@ -211,7 +216,7 @@ const Cards = () => {
           onClick={toggleMode}
           disabled={isSpelling}
         >
-          {mode === "treino" ? "🎯 Modo Desafio" : "📚 Modo Treino"}
+          {mode === "treino" ? translate('trainModeButton') : translate('challengeModeButton')}
         </button>
         
         <button 
@@ -219,16 +224,16 @@ const Cards = () => {
           onClick={nextCard}
           disabled={isSpelling}
         >
-          Próximo →
+          {translate('nextButton')}
         </button>
       </div>
 
       <div className="cards-instructions">
-        <p><strong>Instruções:</strong></p>
+        <p><strong>{translate('instructionsTitle')}</strong></p>
         <ul>
-          <li>Use as setas ← → do teclado para navegar</li>
-          <li>Pressione ESPAÇO ou ENTER para ativar o card</li>
-          <li>Aguarde a soletração completa antes de interagir</li>
+          {translate('instructionsList').map((instruction, index) => (
+            <li key={index}>{instruction}</li>
+          ))}
         </ul>
       </div>
     </div>
