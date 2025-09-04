@@ -24,6 +24,7 @@ const Game = () => {
   const [gameEnded, setGameEnded] = useState(false);
   const [isRandomMode, setIsRandomMode] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [totalWords] = useState(originalWords.length);
 
   // Função shuffleArray importada de wordsData
@@ -42,7 +43,7 @@ const Game = () => {
       setResultMessage(translate('incorrectMessage', { word: correctWord }));
       setMessageColor('red');
       setKeyboardDisabled(false);
-      setNextButtonDisabled(true);
+      setNextButtonDisabled(false);
     }
   };
 
@@ -58,7 +59,7 @@ const Game = () => {
     if (newInput.length === 0) {
       setResultMessage('');
       setMessageColor('');
-      setNextButtonDisabled(true);
+      setNextButtonDisabled(false);
     } else {
       checkWord(newInput);
     }
@@ -71,29 +72,34 @@ const Game = () => {
   };
 
   const handleNextWord = () => {
-    if (resultMessage.includes(translate('correctMessage').split('!')[0])) {
-      const nextIndex = currentWordIndex + 1;
-      
-      if (nextIndex >= words.length) {
-        setGameEnded(true);
-        setResultMessage(translate('gameEndMessage', { 
-          correct: correctAnswers + 1, 
-          total: totalWords 
-        }));
-        setMessageColor('blue');
-        return;
-      }
-
-      setCurrentWordIndex(nextIndex);
-      setUserInput('');
-      setResultMessage('');
-      setMessageColor('');
-      setKeyboardDisabled(false);
-      setNextButtonDisabled(true);
-    } else {
-      setResultMessage(translate('needCorrectMessage'));
-      setMessageColor('orange');
+    const isCorrect = resultMessage.includes(translate('correctMessage').split('!')[0]);
+    
+    // Se não acertou, contabiliza como erro
+    if (!isCorrect && resultMessage !== '') {
+      setIncorrectAnswers(prev => prev + 1);
     }
+    
+    const nextIndex = currentWordIndex + 1;
+    
+    if (nextIndex >= words.length) {
+      setGameEnded(true);
+      const finalCorrect = isCorrect ? correctAnswers + 1 : correctAnswers;
+      const finalIncorrect = isCorrect ? incorrectAnswers : incorrectAnswers + 1;
+      setResultMessage(translate('gameEndMessage', { 
+        correct: finalCorrect, 
+        total: totalWords,
+        incorrect: finalIncorrect
+      }));
+      setMessageColor('blue');
+      return;
+    }
+
+    setCurrentWordIndex(nextIndex);
+    setUserInput('');
+    setResultMessage('');
+    setMessageColor('');
+    setKeyboardDisabled(false);
+    setNextButtonDisabled(false); // Sempre permitir avançar
   };
 
   const toggleRandomMode = () => {
@@ -112,9 +118,10 @@ const Game = () => {
     setResultMessage('');
     setMessageColor('');
     setKeyboardDisabled(false);
-    setNextButtonDisabled(true);
+    setNextButtonDisabled(false);
     setGameEnded(false);
     setCorrectAnswers(0);
+    setIncorrectAnswers(0);
   };
 
   const restartGame = () => {
@@ -129,9 +136,10 @@ const Game = () => {
     setResultMessage('');
     setMessageColor('');
     setKeyboardDisabled(false);
-    setNextButtonDisabled(true);
+    setNextButtonDisabled(false);
     setGameEnded(false);
     setCorrectAnswers(0);
+    setIncorrectAnswers(0);
   };
 
   if (gameEnded) {
@@ -158,7 +166,9 @@ const Game = () => {
     <div className="game-content">
       <div className="game-info">
         <span className="word-counter">{currentWordIndex + 1}/{totalWords}</span>
-        <span className="score">{translate('scoreLabel')}{correctAnswers}</span>
+        <span className="score">
+          ✅ {correctAnswers} | ❌ {incorrectAnswers}
+        </span>
       </div>
       
       <div className="game-controls">
