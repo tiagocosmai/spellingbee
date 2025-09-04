@@ -13,7 +13,7 @@ node_modules/
 /dist
 
 # Environment variables
-.envnha  
+.envnha uamg 
 .env.local
 .env.development.local
 .env.test.local
@@ -64,7 +64,7 @@ pids
 
 # Gatsby files
 .cache/
-public
+# public (commented out for React CRA - public folder needed for index.html)
 
 # Vuepress build output
 .vuepress/dist

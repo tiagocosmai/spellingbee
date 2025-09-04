@@ -222,6 +222,9 @@ const Cards = () => {
       </div>
 
       <div className="flashcard" onClick={handleCardClick}>
+        <div className="card-counter-overlay">
+          {current + 1}/{cards.length}
+        </div>
         {renderCard()}
       </div>
 
