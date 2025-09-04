@@ -1,0 +1,201 @@
+// Dados compartilhados entre Game e Cards
+// Todas as palavras dos flashcards com imagens locais
+
+const wordsData = [
+  // Unidade 1 - Aparência física
+  { en: "Portrait", pt: "Retrato", image: "/images/portrait.png", category: "appearance" },
+  { en: "Self-portrait", pt: "Autorretrato", image: "/images/self-portrait.png", category: "appearance" },
+  { en: "DNA", pt: "DNA", image: "/images/dna.png", category: "appearance" },
+  { en: "Blue eyes", pt: "Olhos azuis", image: "/images/blue-eyes.png", category: "appearance" },
+  { en: "Moustache", pt: "Bigode", image: "/images/moustache.png", category: "appearance" },
+  { en: "Curly hair", pt: "Cabelo cacheado", image: "/images/curly-hair.png", category: "appearance" },
+  { en: "Thin", pt: "Magro", image: "/images/thin.png", category: "appearance" },
+  { en: "Green eyes", pt: "Olhos verdes", image: "/images/green-eyes.png", category: "appearance" },
+  { en: "Blond hair", pt: "Cabelo loiro", image: "/images/blond-hair.png", category: "appearance" },
+  { en: "Fat", pt: "Gordo", image: "/images/fat.png", category: "appearance" },
+  { en: "Beard", pt: "Barba", image: "/images/beard.png", category: "appearance" },
+  { en: "Straight hair", pt: "Cabelo liso", image: "/images/straight-hair.png", category: "appearance" },
+  { en: "Grey hair", pt: "Cabelo grisalho", image: "/images/grey-hair.png", category: "appearance" },
+  { en: "Long hair", pt: "Cabelo comprido", image: "/images/long-hair.png", category: "appearance" },
+  { en: "Short hair", pt: "Cabelo curto", image: "/images/short-hair.png", category: "appearance" },
+  { en: "Tall", pt: "Alto", image: "/images/tall.png", category: "appearance" },
+  { en: "Short", pt: "Baixo", image: "/images/short.png", category: "appearance" },
+  { en: "Brown eyes", pt: "Olhos castanhos", image: "/images/brown-eyes.png", category: "appearance" },
+  { en: "Brown hair", pt: "Cabelo castanho", image: "/images/brown-hair.png", category: "appearance" },
+  { en: "Young", pt: "Jovem", image: "/images/young.png", category: "appearance" },
+  { en: "Old", pt: "Velho", image: "/images/old.png", category: "appearance" },
+  { en: "Weak", pt: "Fraco", image: "/images/weak.png", category: "appearance" },
+  { en: "Strong", pt: "Forte", image: "/images/strong.png", category: "appearance" },
+  { en: "Beautiful", pt: "Bonito(a)", image: "/images/beautiful.svg", category: "appearance" },
+  { en: "Ugly", pt: "Feio(a)", image: "/images/ugly.png", category: "appearance" },
+
+  // Unidade 2 - Casa e objetos
+  { en: "Upstairs", pt: "Andar de cima", image: "/images/upstairs.png", category: "house" },
+  { en: "Downstairs", pt: "Andar de baixo", image: "/images/downstairs.png", category: "house" },
+  { en: "Basement", pt: "Porão", image: "/images/basement.png", category: "house" },
+  { en: "Floor", pt: "Piso/andar", image: "/images/floor.png", category: "house" },
+  { en: "Lift", pt: "Elevador", image: "/images/lift.png", category: "house" },
+  { en: "Internet", pt: "Internet", image: "/images/internet.png", category: "house" },
+  { en: "Fan", pt: "Ventilador", image: "/images/fan.svg", category: "house" },
+  { en: "Shower", pt: "Chuveiro", image: "/images/shower.png", category: "house" },
+  { en: "Stairs", pt: "Escadas", image: "/images/stairs.svg", category: "house" },
+  { en: "Broom", pt: "Vassoura", image: "/images/broom.png", category: "house" },
+  { en: "Board games", pt: "Jogos de tabuleiro", image: "/images/board-games.png", category: "house" },
+  { en: "Tall apartment building", pt: "Prédio alto", image: "/images/apartment-building.png", category: "house" },
+  { en: "Oxygen", pt: "Oxigênio", image: "/images/oxygen.png", category: "house" },
+  { en: "Water", pt: "Água", image: "/images/water.png", category: "house" },
+  { en: "Gravity", pt: "Gravidade", image: "/images/gravity.png", category: "house" },
+  { en: "Plants", pt: "Plantas", image: "/images/plants.png", category: "house" },
+  { en: "Animals", pt: "Animais", image: "/images/animals.png", category: "house" },
+
+  // Unidade 3 - Tempo e arte
+  { en: "Day", pt: "Dia", image: "/images/day.png", category: "time" },
+  { en: "Night", pt: "Noite", image: "/images/night.png", category: "time" },
+  { en: "Aging", pt: "Envelhecimento", image: "/images/aging.png", category: "time" },
+  { en: "Schedule", pt: "Agenda", image: "/images/schedule.png", category: "time" },
+  { en: "Sandglass", pt: "Ampulheta", image: "/images/sandglass.png", category: "time" },
+  { en: "Four seasons", pt: "Quatro estações", image: "/images/seasons.png", category: "time" },
+  { en: "Birthday", pt: "Aniversário", image: "/images/birthday.png", category: "time" },
+  { en: "Pottery", pt: "Cerâmica", image: "/images/pottery.png", category: "time" },
+  { en: "Architecture", pt: "Arquitetura", image: "/images/architecture.png", category: "time" },
+  { en: "Sculpture", pt: "Escultura", image: "/images/sculpture.png", category: "time" },
+  { en: "Maths", pt: "Matemática", image: "/images/maths.png", category: "time" },
+  { en: "Sport", pt: "Esporte", image: "/images/sport.png", category: "time" },
+
+  // Unidade 4 - Comida e ações
+  { en: "Picnic", pt: "Piquenique", image: "/images/picnic.png", category: "food" },
+  { en: "Cheese", pt: "Queijo", image: "/images/cheese.png", category: "food" },
+  { en: "Glass", pt: "Copo", image: "/images/glass.png", category: "food" },
+  { en: "Lemonade", pt: "Limonada", image: "/images/lemonade.png", category: "food" },
+  { en: "Butter", pt: "Manteiga", image: "/images/butter.png", category: "food" },
+  { en: "Spoon", pt: "Colher", image: "/images/spoon.png", category: "food" },
+  { en: "Sandwich", pt: "Sanduíche", image: "/images/sandwich.svg", category: "food" },
+  { en: "Plate", pt: "Prato", image: "/images/plate.png", category: "food" },
+  { en: "Fork", pt: "Garfo", image: "/images/fork.png", category: "food" },
+  { en: "Salad", pt: "Salada", image: "/images/salad.png", category: "food" },
+  { en: "Bowl", pt: "Tigela", image: "/images/bowl.png", category: "food" },
+  { en: "Knife", pt: "Faca", image: "/images/knife.png", category: "food" },
+  { en: "Dance", pt: "Dançar", image: "/images/dance.png", category: "food" },
+  { en: "Monday", pt: "Segunda-feira", image: "/images/monday.png", category: "food" },
+  { en: "Wednesday", pt: "Quarta-feira", image: "/images/wednesday.png", category: "food" },
+  { en: "Read", pt: "Ler", image: "/images/read.png", category: "food" },
+  { en: "Roast", pt: "Assar", image: "/images/roast.png", category: "food" },
+  { en: "Heat", pt: "Aquecer", image: "/images/heat.png", category: "food" },
+  { en: "Grind", pt: "Moer", image: "/images/grind.png", category: "food" },
+  { en: "Brew", pt: "Fermentar/Preparar", image: "/images/brew.png", category: "food" },
+  { en: "Age", pt: "Envelhecer", image: "/images/age.png", category: "food" }
+];
+
+// Função para gerar imagem placeholder baseada na palavra
+export const generatePlaceholderImage = (word, width = 400, height = 300) => {
+  // Cria um canvas para gerar uma imagem placeholder
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  
+  // Gradient de fundo baseado na categoria
+  const gradients = {
+    appearance: ['#667eea', '#764ba2'],
+    house: ['#f093fb', '#f5576c'],
+    time: ['#4facfe', '#00f2fe'],
+    food: ['#43e97b', '#38f9d7']
+  };
+  
+  // Emojis por categoria
+  const categoryEmojis = {
+    appearance: ['👤', '👁️', '💇', '🧔', '👶', '👴'],
+    house: ['🏠', '🪜', '🚿', '🌟', '🎲', '🪴'],
+    time: ['⏰', '🌅', '🌙', '📅', '⏳', '🎂'],
+    food: ['🍽️', '🥪', '🧀', '🥗', '🍴', '📚']
+  };
+  
+  const wordData = wordsData.find(w => w.en.toLowerCase() === word.toLowerCase());
+  const colors = wordData ? gradients[wordData.category] || ['#667eea', '#764ba2'] : ['#667eea', '#764ba2'];
+  const emojis = wordData ? categoryEmojis[wordData.category] || ['🖼️'] : ['🖼️'];
+  
+  // Gradient de fundo
+  const gradient = ctx.createLinearGradient(0, 0, width, height);
+  gradient.addColorStop(0, colors[0]);
+  gradient.addColorStop(1, colors[1]);
+  
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, width, height);
+  
+  // Adiciona padrão decorativo
+  ctx.globalAlpha = 0.1;
+  for (let i = 0; i < 10; i++) {
+    ctx.beginPath();
+    ctx.arc(
+      Math.random() * width, 
+      Math.random() * height, 
+      Math.random() * 30 + 10, 
+      0, 
+      2 * Math.PI
+    );
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  
+  // Emoji da categoria
+  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+  ctx.font = '48px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText(randomEmoji, width/2, height/2 - 40);
+  
+  // Adiciona o texto da palavra
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = 'bold 28px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0,0,0,0.8)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  
+  // Quebra texto em múltiplas linhas se necessário
+  const words = word.split(' ');
+  if (words.length > 1) {
+    const lineHeight = 35;
+    words.forEach((w, index) => {
+      ctx.fillText(w, width/2, (height/2 + 50) + (index - (words.length-1)/2) * lineHeight);
+    });
+  } else {
+    ctx.fillText(word.toUpperCase(), width/2, height/2 + 50);
+  }
+  
+  // Adiciona borda decorativa
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(10, 10, width-20, height-20);
+  
+  return canvas.toDataURL('image/png');
+};
+
+// Função para obter dados de uma palavra
+export const getWordData = (englishWord) => {
+  return wordsData.find(word => 
+    word.en.toLowerCase() === englishWord.toLowerCase()
+  );
+};
+
+// Função para obter todas as palavras
+export const getAllWords = () => wordsData;
+
+// Função para obter palavras por categoria
+export const getWordsByCategory = (category) => {
+  return wordsData.filter(word => word.category === category);
+};
+
+// Função para embaralhar array
+export const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+export default wordsData;

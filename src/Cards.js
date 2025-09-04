@@ -1,40 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Cards.css';
+import { getAllWords } from './wordsData';
 
 const Cards = () => {
-  const cards = [
-    // Unidade 1
-    {en: "Portrait", pt: "Retrato"}, {en: "Self-portrait", pt: "Autorretrato"}, {en: "DNA", pt: "DNA"},
-    {en: "Blue eyes", pt: "Olhos azuis"}, {en: "Moustache", pt: "Bigode"}, {en: "Curly hair", pt: "Cabelo cacheado"},
-    {en: "Thin", pt: "Magro"}, {en: "Green eyes", pt: "Olhos verdes"}, {en: "Blond hair / Fair hair", pt: "Cabelo loiro"},
-    {en: "Fat", pt: "Gordo"}, {en: "Beard", pt: "Barba"}, {en: "Straight hair", pt: "Cabelo liso"},
-    {en: "Grey hair", pt: "Cabelo grisalho"}, {en: "Long hair", pt: "Cabelo comprido"}, {en: "Short hair", pt: "Cabelo curto"},
-    {en: "Tall", pt: "Alto"}, {en: "Short", pt: "Baixo"}, {en: "Brown eyes", pt: "Olhos castanhos"},
-    {en: "Brown hair", pt: "Cabelo castanho"}, {en: "Young", pt: "Jovem"}, {en: "Old", pt: "Velho"},
-    {en: "Weak", pt: "Fraco"}, {en: "Strong", pt: "Forte"}, {en: "Beautiful", pt: "Bonito(a)"}, {en: "Ugly", pt: "Feio(a)"},
-
-    // Unidade 2
-    {en: "Upstairs", pt: "Andar de cima"}, {en: "Downstairs", pt: "Andar de baixo"}, {en: "Basement", pt: "Porão"},
-    {en: "Floor", pt: "Piso/andar"}, {en: "Lift", pt: "Elevador"}, {en: "Internet", pt: "Internet"},
-    {en: "Fan", pt: "Ventilador"}, {en: "Shower", pt: "Chuveiro"}, {en: "Stairs", pt: "Escadas"},
-    {en: "Broom", pt: "Vassoura"}, {en: "Board games", pt: "Jogos de tabuleiro"}, {en: "Tall apartment building", pt: "Prédio alto"},
-    {en: "Oxygen", pt: "Oxigênio"}, {en: "Water", pt: "Água"}, {en: "Gravity", pt: "Gravidade"},
-    {en: "Plants", pt: "Plantas"}, {en: "Animals", pt: "Animais"},
-
-    // Unidade 3
-    {en: "Day", pt: "Dia"}, {en: "Night", pt: "Noite"}, {en: "Aging", pt: "Envelhecimento"}, {en: "Schedule", pt: "Agenda"},
-    {en: "Sandglass / Hourglass", pt: "Ampulheta"}, {en: "Four seasons", pt: "Quatro estações"}, {en: "Birthday", pt: "Aniversário"},
-    {en: "Pottery", pt: "Cerâmica"}, {en: "Architecture", pt: "Arquitetura"}, {en: "Sculpture", pt: "Escultura"},
-    {en: "Maths", pt: "Matemática"}, {en: "Sport (Olympia)", pt: "Esporte (Olimpíadas)"},
-
-    // Unidade 4
-    {en: "Picnic", pt: "Piquenique"}, {en: "Cheese", pt: "Queijo"}, {en: "Glass", pt: "Copo"}, {en: "Lemonade", pt: "Limonada"},
-    {en: "Butter", pt: "Manteiga"}, {en: "Spoon", pt: "Colher"}, {en: "Sandwich", pt: "Sanduíche"},
-    {en: "Plate", pt: "Prato"}, {en: "Fork", pt: "Garfo"}, {en: "Salad", pt: "Salada"},
-    {en: "Bowl", pt: "Tigela"}, {en: "Knife", pt: "Faca"}, {en: "Dance", pt: "Dançar"},
-    {en: "Monday", pt: "Segunda-feira"}, {en: "Wednesday", pt: "Quarta-feira"}, {en: "Read", pt: "Ler"},
-    {en: "Roast", pt: "Assar"}, {en: "Heat", pt: "Aquecer"}, {en: "Grind", pt: "Moer"}, {en: "Brew", pt: "Fermentar/Preparar"}, {en: "Age", pt: "Envelhecer"}
-  ];
+  const cards = getAllWords();
 
   const [current, setCurrent] = useState(0);
   const [showingTranslation, setShowingTranslation] = useState(false);

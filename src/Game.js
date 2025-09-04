@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import VirtualKeyboard from './VirtualKeyboard';
+import WordImage from './WordImage';
+import { getAllWords, shuffleArray } from './wordsData';
 
 const Game = () => {
-  const originalWords = [
-    { word: 'beautiful', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrtoxfsrsyji5_ejfxwnBSnv6TCq6H6yGI7_upB_XyCGQ7vOTwwKUEed6Hu3Ip_6AOCwY&usqp=CAU' },
-    { word: 'curly hair', image: 'https://i.pinimg.com/736x/3a/99/bf/3a99bf7e2c392566347554d0f0f5df17.jpg' },
-    { word: 'moustache', image: 'https://media.istockphoto.com/id/1133779957/pt/vetorial/mustache-icon-vector-moustache-vintage-shape-symbol.jpg?s=612x612&w=0&k=20&c=lKbN1F-VfKGSw0HbyyDE-hkw0c_EU3d4fz8dCxJwS-4=' },
-    { word: 'stairs', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJqMvzAAtOyFhpkOX9UbPX27bUrJ6jKWu2jw&s' },
-    { word: 'fan', image: 'https://img.freepik.com/vetores-premium/ilustracao-do-vetor-de-fa-ventilador-azul-dos-desenhos-animados-desenho-de-mao-de-fa-isolado_648083-319.jpg' },
-    { word: 'board games', image: 'https://img.freepik.com/vetores-gratis/elementos-de-jogos-de-tabuleiro-desenhados-a-mao_23-2151071907.jpg?semt=ais_incoming&w=740&q=80' },
-    { word: 'sandglass', image: 'https://cdn-icons-png.flaticon.com/512/4871/4871214.png' },
-    { word: 'pottery', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVq0I0xywHgBQzbtXYQPjOtiIZ5G1VR290Tgiv2i7IZRMtoDmiEIof3ZBusy6KDKafnvo&usqp=CAU' },
-    { word: 'sculpture', image: 'https://st2.depositphotos.com/5891300/46682/v/450/depositphotos_466827022-stock-illustration-aphrodite-ancient-statue-color-sketch.jpg' },
-    { word: 'picnic', image: 'https://static.vecteezy.com/ti/vetor-gratis/p1/16883431-criancas-bonitinhas-fazem-piquenique-juntos-ilustracaoial-de-desenho-animado-vetor.jpg' },
-    { word: 'sandwich', image: 'https://i.pinimg.com/736x/3d/8b/8f/3d8b8f210621c6073f1e07e54a985036.jpg' },
-    { word: 'fork', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD5bH6LyMkNj8R9M4RyyhLPMOOf28zFh89LQ&s' }
-  ];
+  const originalWords = getAllWords().map(word => ({
+    word: word.en.toLowerCase(),
+    image: word.image,
+    translation: word.pt,
+    category: word.category
+  }));
 
   const [words, setWords] = useState(originalWords);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -29,15 +23,7 @@ const Game = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [totalWords] = useState(originalWords.length);
 
-  // Função para embaralhar array
-  const shuffleArray = (array) => {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
-  };
+  // Função shuffleArray importada de wordsData
 
   const checkWord = (inputText) => {
     const userGuess = inputText.trim().toLowerCase();
@@ -186,10 +172,11 @@ const Game = () => {
       
       <p className="instruction">Veja a imagem e soletre a palavra.</p>
       
-      <img 
-        id="word-image" 
-        src={currentWord.image} 
-        alt="Imagem da palavra"
+      <WordImage
+        word={currentWord.word}
+        image={currentWord.image}
+        alt={`Imagem da palavra ${currentWord.word}`}
+        id="word-image"
       />
       
       <div className="input-display">
