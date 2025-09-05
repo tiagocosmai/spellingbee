@@ -22,9 +22,26 @@ const Cards = () => {
     }
 
     setIsSpelling(true);
+    
+    // Configurar utterance forçando inglês
     const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.8;
+    
+    // Obter vozes e forçar inglês
+    const voices = window.speechSynthesis.getVoices();
+    const englishVoice = voices.find(voice => 
+      voice.lang.startsWith('en') || 
+      voice.lang.includes('en-US') || 
+      voice.lang.includes('en-GB')
+    );
+    
+    if (englishVoice) {
+      utterance.voice = englishVoice;
+      utterance.lang = englishVoice.lang;
+    } else {
+      utterance.lang = 'en-US';
+    }
+    
+    utterance.rate = 0.7;
     
     // Preparar letras para soletração
     const letters = word.replace(/\s+/g, ' ').split('');
@@ -54,8 +71,23 @@ const Cards = () => {
         
         if (letter.trim() !== '') {
           const letterUtterance = new SpeechSynthesisUtterance(letter);
-          letterUtterance.lang = 'en-US';
-          letterUtterance.rate = 0.6;
+          
+          // Forçar inglês para soletração também
+          const voices = window.speechSynthesis.getVoices();
+          const englishVoice = voices.find(voice => 
+            voice.lang.startsWith('en') || 
+            voice.lang.includes('en-US') || 
+            voice.lang.includes('en-GB')
+          );
+          
+          if (englishVoice) {
+            letterUtterance.voice = englishVoice;
+            letterUtterance.lang = englishVoice.lang;
+          } else {
+            letterUtterance.lang = 'en-US';
+          }
+          
+          letterUtterance.rate = 0.5; // Mais devagar para soletração
           
           window.speechSynthesis.speak(letterUtterance);
           

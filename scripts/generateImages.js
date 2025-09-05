@@ -122,7 +122,7 @@ const specificEmojis = {
   'read': '📖', 'roast': '🔥', 'heat': '🌡️', 'grind': '⚙️', 'brew': '☕', 'age': '👶➡️👴'
 };
 
-// Função para criar SVG (SEM LEGENDAS - apenas visual)
+// Função para criar SVG otimizado (SEM LEGENDAS - apenas visual)
 function createSVG(word, category) {
   const colors = gradients[category] || ['#667eea', '#764ba2'];
   const emoji = specificEmojis[word.en.toLowerCase()] || '🖼️';

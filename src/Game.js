@@ -135,9 +135,32 @@ const Game = () => {
 
     const currentWord = words[currentWordIndex].word;
     const utterance = new SpeechSynthesisUtterance(currentWord);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.8;
+    
+    // Forçar sempre inglês - tentar múltiplas variações
+    const englishLocales = ['en-US', 'en-GB', 'en-AU', 'en-CA', 'en'];
+    
+    // Obter vozes disponíveis
+    const voices = window.speechSynthesis.getVoices();
+    
+    // Procurar por voz em inglês
+    let englishVoice = null;
+    for (const locale of englishLocales) {
+      englishVoice = voices.find(voice => voice.lang.startsWith(locale.split('-')[0]) && voice.lang.includes('en'));
+      if (englishVoice) break;
+    }
+    
+    // Configurar utterance forçando inglês
+    if (englishVoice) {
+      utterance.voice = englishVoice;
+      utterance.lang = englishVoice.lang;
+    } else {
+      // Fallback - tentar forçar en-US mesmo sem voz específica
+      utterance.lang = 'en-US';
+    }
+    
+    utterance.rate = 0.7; // Um pouco mais devagar para melhor compreensão
     utterance.volume = 1;
+    utterance.pitch = 1;
 
     setIsPlaying(true);
 
@@ -145,9 +168,17 @@ const Game = () => {
       setIsPlaying(false);
     };
 
-    utterance.onerror = () => {
+    utterance.onerror = (event) => {
       setIsPlaying(false);
-      console.error('Erro na síntese de voz');
+      console.error('Erro na síntese de voz:', event.error);
+      
+      // Tentar novamente com configuração mais simples
+      if (event.error === 'language-not-supported') {
+        const simpleUtterance = new SpeechSynthesisUtterance(currentWord);
+        simpleUtterance.lang = 'en';
+        simpleUtterance.rate = 0.7;
+        window.speechSynthesis.speak(simpleUtterance);
+      }
     };
 
     window.speechSynthesis.speak(utterance);
