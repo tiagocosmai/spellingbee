@@ -44,7 +44,13 @@ const translations = {
     ],
     
     // Language
-    languageButton: "🇧🇷 Português"
+    languageButton: "🇧🇷 Português",
+    
+    // Footer
+    otherGamesText: "Try our other educational game:",
+    hangmanGame: "Hangman Game",
+    madeWith: "Made with",
+    forEducation: "for education"
   },
   pt: {
     // Header
@@ -88,7 +94,13 @@ const translations = {
     ],
     
     // Language
-    languageButton: "🇺🇸 English"
+    languageButton: "🇺🇸 English",
+    
+    // Footer
+    otherGamesText: "Experimente nosso outro jogo educativo:",
+    hangmanGame: "Jogo da Forca",
+    madeWith: "Feito com",
+    forEducation: "para educação"
   }
 };
 

@@ -58,6 +58,28 @@ const AppContent = () => {
       <div className="tab-content">
         {renderTabContent()}
       </div>
+      
+      {/* Footer com link para outros jogos */}
+      <footer className="app-footer">
+        <div className="other-games">
+          <span className="footer-text">
+            {translate('otherGamesText')}
+          </span>
+          <a 
+            href="https://portinari-forca.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="game-link"
+          >
+            🎯 {translate('hangmanGame')}
+          </a>
+        </div>
+        <div className="footer-credits">
+          <span className="credits-text">
+            {translate('madeWith')} ❤️ {translate('forEducation')}
+          </span>
+        </div>
+      </footer>
     </div>
   );
 };
