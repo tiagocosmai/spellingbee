@@ -212,6 +212,18 @@ const Game = () => {
   }
 
   const currentWord = words[currentWordIndex];
+  
+  // Preparar URLs das próximas 3 imagens para preload
+  const getNextImages = () => {
+    const nextImages = [];
+    for (let i = 1; i <= 3; i++) {
+      const nextIndex = currentWordIndex + i;
+      if (nextIndex < words.length) {
+        nextImages.push(words[nextIndex].image);
+      }
+    }
+    return nextImages;
+  };
 
   return (
     <div className="game-content">
@@ -244,6 +256,7 @@ const Game = () => {
         image={currentWord.image}
         alt={`Imagem da palavra ${currentWord.word}`}
         id="word-image"
+        preloadNext={getNextImages()}
       />
       
       <button 
