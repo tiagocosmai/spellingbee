@@ -95,30 +95,30 @@ const gradients = {
   food: ['#43e97b', '#38f9d7']
 };
 
-// Emojis específicos por palavra (melhorados para representar significados reais)
+// Emojis específicos por palavra (melhorados para representar significados reais)e, se
 const specificEmojis = {
   // Aparência
   'portrait': '🖼️', 'self-portrait': '🤳', 'dna': '🧬', 'blue eyes': '🔵👁️', 'moustache': '🥸',
-  'curly hair': '🌀', 'thin': '🪶', 'green eyes': '🟢👁️', 'blond hair': '☀️', 'fat': '🎈',
-  'beard': '🧔‍♂️', 'straight hair': '📏', 'grey hair': '⚪', 'long hair': '🎀', 'short hair': '✂️',
+  'curly hair': '👧🌀', 'thin': '🪶', 'green eyes': '🟢👁️', 'blond hair': '🟡👩‍🦱', 'fat': '👨🍔',
+  'beard': '🧔‍♂️', 'straight hair': '👩📏', 'grey hair': '⚪👩‍🦳', 'long hair': '📏👩‍🦱', 'short hair': '✂️👩‍🦳',
   'tall': '🦒', 'short': '🐿️', 'brown eyes': '🟤👁️', 'brown hair': '🌰', 'young': '👶',
   'old': '👴', 'weak': '🪶', 'strong': '💪', 'beautiful': '👸', 'ugly': '👹',
   
   // Casa
-  'upstairs': '⬆️', 'downstairs': '⬇️', 'basement': '🕳️', 'floor': '🟫', 'lift': '🛗',
+  'upstairs': '⬆️🪜', 'downstairs': '⬇️🪜', 'basement': '🏠🕳️', 'floor': '🏠🟫', 'lift': '🛗',
   'internet': '🌐', 'fan': '🌀', 'shower': '🚿', 'stairs': '🪜', 'broom': '🧹',
-  'board games': '🎲', 'tall apartment building': '🏢', 'oxygen': '🫁', 'water': '💧',
-  'gravity': '⬇️', 'plants': '🌱', 'animals': '🦁',
+  'board games': '🎲♟️', 'tall apartment building': '🏢', 'water': '💧',
+  'plants': '🌱', 'animals': '🦁',
   
   // Tempo/Arte
   'day': '☀️', 'night': '🌙', 'aging': '👶➡️👴', 'schedule': '📅', 'sandglass': '⏳',
-  'four seasons': '🍂', 'birthday': '🎂', 'pottery': '🏺', 'architecture': '🏛️',
+  'birthday': '🎂', 'pottery': '🏺', 'architecture': '🏛️',
   'sculpture': '🗿', 'maths': '🔢', 'sport': '🏃‍♂️',
   
   // Comida/Ações
-  'picnic': '🧺', 'cheese': '🧀', 'glass': '🥛', 'lemonade': '🍋', 'butter': '🧈',
+  'picnic': '🧺', 'cheese': '🧀', 'glass': '🥛', 'lemonade': '🍋🥛', 'butter': '🧈',
   'spoon': '🥄', 'sandwich': '🥪', 'plate': '🍽️', 'fork': '🍴', 'salad': '🥗',
-  'bowl': '🥣', 'knife': '🔪', 'dance': '💃', 'monday': '1️⃣', 'wednesday': '3️⃣',
+  'bowl': '🥣', 'knife': '🔪', 'dance': '💃', 'monday': '2️⃣📅', 'wednesday': '4️⃣📅',
   'read': '📖', 'roast': '🔥', 'heat': '🌡️', 'grind': '⚙️', 'brew': '☕', 'age': '👶➡️👴'
 };
 
