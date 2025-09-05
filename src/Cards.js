@@ -43,7 +43,7 @@ const Cards = () => {
     
     utterance.rate = 0.7;
     
-    // Preparar letras para soletração
+    // Preparar letras para soletração (manter caso original para display)
     const letters = word.replace(/\s+/g, ' ').split('');
     setSpellingLetters(letters);
     
@@ -70,7 +70,9 @@ const Cards = () => {
         setHighlightedIndex(index);
         
         if (letter.trim() !== '') {
-          const letterUtterance = new SpeechSynthesisUtterance(letter);
+          // Converter para minúscula para evitar "letra maiúscula"
+          const cleanLetter = letter.toLowerCase();
+          const letterUtterance = new SpeechSynthesisUtterance(cleanLetter);
           
           // Forçar inglês para soletração também
           const voices = window.speechSynthesis.getVoices();
