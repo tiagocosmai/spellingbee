@@ -26,6 +26,7 @@ const Game = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [totalWords] = useState(originalWords.length);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Função shuffleArray importada de wordsData
 
@@ -116,6 +117,40 @@ const Game = () => {
     setResultMessage('');
     setMessageColor('');
     setKeyboardDisabled(false);
+  };
+
+  const handlePronunciation = () => {
+    if (!window.speechSynthesis) {
+      alert(translate('language') === 'en' ? 
+        'Your browser does not support speech synthesis.' : 
+        'Seu navegador não suporta síntese de voz.');
+      return;
+    }
+
+    if (isPlaying) {
+      window.speechSynthesis.cancel();
+      setIsPlaying(false);
+      return;
+    }
+
+    const currentWord = words[currentWordIndex].word;
+    const utterance = new SpeechSynthesisUtterance(currentWord);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.8;
+    utterance.volume = 1;
+
+    setIsPlaying(true);
+
+    utterance.onend = () => {
+      setIsPlaying(false);
+    };
+
+    utterance.onerror = () => {
+      setIsPlaying(false);
+      console.error('Erro na síntese de voz');
+    };
+
+    window.speechSynthesis.speak(utterance);
   };
 
   const toggleRandomMode = () => {
@@ -210,6 +245,15 @@ const Game = () => {
         alt={`Imagem da palavra ${currentWord.word}`}
         id="word-image"
       />
+      
+      <button 
+        className="pronunciation-button"
+        onClick={handlePronunciation}
+        disabled={isPlaying}
+        title={translate('pronunciationButton')}
+      >
+        {isPlaying ? "🔊 ..." : translate('pronunciationButton')}
+      </button>
       
       <div className="input-display">
         <div className="typed-word">
