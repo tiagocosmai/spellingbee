@@ -3,123 +3,88 @@ const path = require('path');
 
 // Dados das palavras (copiado do wordsData.js)
 const wordsData = [
-  // Unidade 1 - Aparência física
-  { en: "Portrait", pt: "Retrato", category: "appearance" },
-  { en: "Self-portrait", pt: "Autorretrato", category: "appearance" },
-  { en: "DNA", pt: "DNA", category: "appearance" },
-  { en: "Blue eyes", pt: "Olhos azuis", category: "appearance" },
-  { en: "Moustache", pt: "Bigode", category: "appearance" },
-  { en: "Curly hair", pt: "Cabelo cacheado", category: "appearance" },
-  { en: "Thin", pt: "Magro", category: "appearance" },
-  { en: "Green eyes", pt: "Olhos verdes", category: "appearance" },
-  { en: "Blond hair", pt: "Cabelo loiro", category: "appearance" },
-  { en: "Fat", pt: "Gordo", category: "appearance" },
-  { en: "Beard", pt: "Barba", category: "appearance" },
-  { en: "Straight hair", pt: "Cabelo liso", category: "appearance" },
-  { en: "Grey hair", pt: "Cabelo grisalho", category: "appearance" },
-  { en: "Long hair", pt: "Cabelo comprido", category: "appearance" },
-  { en: "Short hair", pt: "Cabelo curto", category: "appearance" },
-  { en: "Tall", pt: "Alto", category: "appearance" },
-  { en: "Short", pt: "Baixo", category: "appearance" },
-  { en: "Brown eyes", pt: "Olhos castanhos", category: "appearance" },
-  { en: "Brown hair", pt: "Cabelo castanho", category: "appearance" },
-  { en: "Young", pt: "Jovem", category: "appearance" },
-  { en: "Old", pt: "Velho", category: "appearance" },
-  { en: "Weak", pt: "Fraco", category: "appearance" },
-  { en: "Strong", pt: "Forte", category: "appearance" },
-  { en: "Beautiful", pt: "Bonito(a)", category: "appearance" },
-  { en: "Ugly", pt: "Feio(a)", category: "appearance" },
+  // Unidade 1 - Transportes e profissões
+  { en: "Bicycle", pt: "Bicicleta", category: "transport" },
+  { en: "Train", pt: "Trem", category: "transport" },
+  { en: "Motorbike", pt: "Motocicleta", category: "transport" },
+  { en: "Helicopter", pt: "Helicóptero", category: "transport" },
+  { en: "Rocket", pt: "Foguete", category: "transport" },
+  { en: "Truck", pt: "Caminhão", category: "transport" },
+  { en: "Electric", pt: "Elétrico", category: "transport" },
+  { en: "Future", pt: "Futuro", category: "transport" },
+  { en: "Astronaut", pt: "Astronauta", category: "transport" },
+  { en: "Police Officer", pt: "Policial", category: "transport" },
+  { en: "Firefighter", pt: "Bombeiro", category: "transport" },
+  { en: "Teacher", pt: "Professor(a)", category: "transport" },
+  { en: "Clown", pt: "Palhaço", category: "transport" },
+  { en: "Fisherman", pt: "Pescador", category: "transport" },
+  { en: "Nurse", pt: "Enfermeiro(a)", category: "transport" },
+  { en: "Doctor", pt: "Médico(a)", category: "transport" },
+  { en: "Driver", pt: "Motorista", category: "transport" },
+  { en: "Dentist", pt: "Dentista", category: "transport" },
 
-  // Unidade 2 - Casa e objetos
-  { en: "Upstairs", pt: "Andar de cima", category: "house" },
-  { en: "Downstairs", pt: "Andar de baixo", category: "house" },
-  { en: "Basement", pt: "Porão", category: "house" },
-  { en: "Floor", pt: "Piso/andar", category: "house" },
-  { en: "Lift", pt: "Elevador", category: "house" },
-  { en: "Internet", pt: "Internet", category: "house" },
-  { en: "Fan", pt: "Ventilador", category: "house" },
-  { en: "Shower", pt: "Chuveiro", category: "house" },
-  { en: "Stairs", pt: "Escadas", category: "house" },
-  { en: "Broom", pt: "Vassoura", category: "house" },
-  { en: "Board games", pt: "Jogos de tabuleiro", category: "house" },
-  { en: "Tall apartment building", pt: "Prédio alto", category: "house" },
-  { en: "Oxygen", pt: "Oxigênio", category: "house" },
-  { en: "Water", pt: "Água", category: "house" },
-  { en: "Gravity", pt: "Gravidade", category: "house" },
-  { en: "Plants", pt: "Plantas", category: "house" },
-  { en: "Animals", pt: "Animais", category: "house" },
+  // Unidade 2 - Lugares, esportes e profissões
+  { en: "Engineer", pt: "Engenheiro(a)", category: "community" },
+  { en: "Journalist", pt: "Jornalista", category: "community" },
+  { en: "Actor", pt: "Ator", category: "community" },
+  { en: "Actress", pt: "Atriz", category: "community" },
+  { en: "Waiter", pt: "Garçom", category: "community" },
+  { en: "Waitress", pt: "Garçonete", category: "community" },
+  { en: "Hotel", pt: "Hotel", category: "community" },
+  { en: "University", pt: "Universidade", category: "community" },
+  { en: "Footballer", pt: "Jogador de futebol", category: "community" },
+  { en: "Robot", pt: "Robô", category: "community" },
+  { en: "Swimming", pt: "Natação", category: "community" },
+  { en: "Volleyball", pt: "Vôlei", category: "community" },
+  { en: "Basketball", pt: "Basquete", category: "community" },
+  { en: "Airport", pt: "Aeroporto", category: "community" },
+  { en: "Park", pt: "Parque", category: "community" },
+  { en: "Ride", pt: "Passeio", category: "community" },
+  { en: "Passenger", pt: "Passageiro(a)", category: "community" },
+  { en: "Circus", pt: "Circo", category: "community" },
 
-  // Unidade 3 - Tempo e arte
-  { en: "Day", pt: "Dia", category: "time" },
-  { en: "Night", pt: "Noite", category: "time" },
-  { en: "Aging", pt: "Envelhecimento", category: "time" },
-  { en: "Schedule", pt: "Agenda", category: "time" },
-  { en: "Sandglass", pt: "Ampulheta", category: "time" },
-  { en: "Four seasons", pt: "Quatro estações", category: "time" },
-  { en: "Birthday", pt: "Aniversário", category: "time" },
-  { en: "Pottery", pt: "Cerâmica", category: "time" },
-  { en: "Architecture", pt: "Arquitetura", category: "time" },
-  { en: "Sculpture", pt: "Escultura", category: "time" },
-  { en: "Maths", pt: "Matemática", category: "time" },
-  { en: "Sport", pt: "Esporte", category: "time" },
-
-  // Unidade 4 - Comida e ações
-  { en: "Picnic", pt: "Piquenique", category: "food" },
-  { en: "Cheese", pt: "Queijo", category: "food" },
-  { en: "Glass", pt: "Copo", category: "food" },
-  { en: "Lemonade", pt: "Limonada", category: "food" },
-  { en: "Butter", pt: "Manteiga", category: "food" },
-  { en: "Spoon", pt: "Colher", category: "food" },
-  { en: "Sandwich", pt: "Sanduíche", category: "food" },
-  { en: "Plate", pt: "Prato", category: "food" },
-  { en: "Fork", pt: "Garfo", category: "food" },
-  { en: "Salad", pt: "Salada", category: "food" },
-  { en: "Bowl", pt: "Tigela", category: "food" },
-  { en: "Knife", pt: "Faca", category: "food" },
-  { en: "Dance", pt: "Dançar", category: "food" },
-  { en: "Monday", pt: "Segunda-feira", category: "food" },
-  { en: "Wednesday", pt: "Quarta-feira", category: "food" },
-  { en: "Read", pt: "Ler", category: "food" },
-  { en: "Roast", pt: "Assar", category: "food" },
-  { en: "Heat", pt: "Aquecer", category: "food" },
-  { en: "Grind", pt: "Moer", category: "food" },
-  { en: "Brew", pt: "Fermentar/Preparar", category: "food" },
-  { en: "Age", pt: "Envelhecer", category: "food" }
+  // Unidade 3 - Família, saúde e lugares
+  { en: "Ambulance", pt: "Ambulância", category: "daily" },
+  { en: "Transport", pt: "Transporte", category: "daily" },
+  { en: "Uncle", pt: "Tio", category: "daily" },
+  { en: "Aunt", pt: "Tia", category: "daily" },
+  { en: "Relatives", pt: "Parentes", category: "daily" },
+  { en: "Parents", pt: "Pais", category: "daily" },
+  { en: "Hospital", pt: "Hospital", category: "daily" },
+  { en: "School", pt: "Escola", category: "daily" },
+  { en: "Party", pt: "Festa", category: "daily" },
+  { en: "Honey", pt: "Mel", category: "daily" },
+  { en: "Garlic", pt: "Alho", category: "daily" },
+  { en: "Sore Throat", pt: "Dor de garganta", category: "daily" },
+  { en: "Restroom", pt: "Banheiro", category: "daily" },
+  { en: "World", pt: "Mundo", category: "daily" },
+  { en: "Castle", pt: "Castelo", category: "daily" },
+  { en: "Library", pt: "Biblioteca", category: "daily" }
 ];
 
 // Configurações de cores por categoria
 const gradients = {
-  appearance: ['#667eea', '#764ba2'],
-  house: ['#f093fb', '#f5576c'],
-  time: ['#4facfe', '#00f2fe'],
-  food: ['#43e97b', '#38f9d7']
+  transport: ['#4facfe', '#00f2fe'],
+  community: ['#667eea', '#764ba2'],
+  daily: ['#43e97b', '#38f9d7']
 };
 
-// Emojis específicos por palavra (melhorados para representar significados reais)e, se
+// Emojis específicos por palavra
 const specificEmojis = {
-  // Aparência
-  'portrait': '🖼️', 'self-portrait': '🤳', 'dna': '🧬', 'blue eyes': '🔵👁️', 'moustache': '🥸',
-  'curly hair': '👧🌀', 'thin': '🪶', 'green eyes': '🟢👁️', 'blond hair': '🟡👩‍🦱', 'fat': '👨🍔',
-  'beard': '🧔‍♂️', 'straight hair': '👩📏', 'grey hair': '⚪👩‍🦳', 'long hair': '📏👩‍🦱', 'short hair': '✂️👩‍🦳',
-  'tall': '🦒', 'short': '🐿️', 'brown eyes': '🟤👁️', 'brown hair': '🌰', 'young': '👶',
-  'old': '👴', 'weak': '🪶', 'strong': '💪', 'beautiful': '👸', 'ugly': '👹',
-  
-  // Casa
-  'upstairs': '⬆️🪜', 'downstairs': '⬇️🪜', 'basement': '🏠🕳️', 'floor': '🏠🟫', 'lift': '🛗',
-  'internet': '🌐', 'fan': '🌀', 'shower': '🚿', 'stairs': '🪜', 'broom': '🧹',
-  'board games': '🎲♟️', 'tall apartment building': '🏢', 'water': '💧',
-  'plants': '🌱', 'animals': '🦁',
-  
-  // Tempo/Arte
-  'day': '☀️', 'night': '🌙', 'aging': '👶➡️👴', 'schedule': '📅', 'sandglass': '⏳',
-  'birthday': '🎂', 'pottery': '🏺', 'architecture': '🏛️',
-  'sculpture': '🗿', 'maths': '🔢', 'sport': '🏃‍♂️',
-  
-  // Comida/Ações
-  'picnic': '🧺', 'cheese': '🧀', 'glass': '🥛', 'lemonade': '🍋🥛', 'butter': '🧈',
-  'spoon': '🥄', 'sandwich': '🥪', 'plate': '🍽️', 'fork': '🍴', 'salad': '🥗',
-  'bowl': '🥣', 'knife': '🔪', 'dance': '💃', 'monday': '2️⃣📅', 'wednesday': '4️⃣📅',
-  'read': '📖', 'roast': '🔥', 'heat': '🌡️', 'grind': '⚙️', 'brew': '☕', 'age': '👶➡️👴'
+  'bicycle': '🚲', 'train': '🚆', 'motorbike': '🏍️', 'helicopter': '🚁', 'rocket': '🚀',
+  'truck': '🚚', 'electric': '⚡', 'future': '🔮', 'astronaut': '👨‍🚀', 'police officer': '👮',
+  'firefighter': '🚒', 'teacher': '👩‍🏫', 'clown': '🤡', 'fisherman': '🎣', 'nurse': '👩‍⚕️',
+  'doctor': '👨‍⚕️', 'driver': '🚗', 'dentist': '🦷',
+
+  'engineer': '👷', 'journalist': '📰', 'actor': '🎭', 'actress': '🎬', 'waiter': '🤵',
+  'waitress': '💁', 'hotel': '🏨', 'university': '🎓', 'footballer': '⚽', 'robot': '🤖',
+  'swimming': '🏊', 'volleyball': '🏐', 'basketball': '🏀', 'airport': '✈️', 'park': '🌳',
+  'ride': '🎢', 'passenger': '🧳', 'circus': '🎪',
+
+  'ambulance': '🚑', 'transport': '🚌', 'uncle': '👨', 'aunt': '👩', 'relatives': '👨‍👩‍👧‍👦',
+  'parents': '👪', 'hospital': '🏥', 'school': '🏫', 'party': '🎉', 'honey': '🍯',
+  'garlic': '🧄', 'sore throat': '🤒', 'restroom': '🚻', 'world': '🌍', 'castle': '🏰',
+  'library': '📚'
 };
 
 // Função para criar SVG otimizado (SEM LEGENDAS - apenas visual)
