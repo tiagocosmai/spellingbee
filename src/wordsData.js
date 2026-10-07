@@ -2,85 +2,63 @@
 // Todas as palavras dos flashcards com imagens locais
 
 const wordsData = [
-  // Unidade 1 - Aparência física
-  { en: "Portrait", pt: "Retrato", image: "/images/portrait.svg", category: "appearance" },
-  { en: "Self-portrait", pt: "Autorretrato", image: "/images/self-portrait.svg", category: "appearance" },
-  { en: "DNA", pt: "DNA", image: "/images/dna.svg", category: "appearance" },
-  { en: "Blue eyes", pt: "Olhos azuis", image: "/images/blue-eyes.svg", category: "appearance" },
-  { en: "Moustache", pt: "Bigode", image: "/images/moustache.svg", category: "appearance" },
-  { en: "Curly hair", pt: "Cabelo cacheado", image: "/images/curly-hair.svg", category: "appearance" },
-  { en: "Thin", pt: "Magro", image: "/images/thin.svg", category: "appearance" },
-  { en: "Green eyes", pt: "Olhos verdes", image: "/images/green-eyes.svg", category: "appearance" },
-  { en: "Blond hair", pt: "Cabelo loiro", image: "/images/blond-hair.svg", category: "appearance" },
-  { en: "Fat", pt: "Gordo", image: "/images/fat.svg", category: "appearance" },
-  { en: "Beard", pt: "Barba", image: "/images/beard.svg", category: "appearance" },
-  { en: "Straight hair", pt: "Cabelo liso", image: "/images/straight-hair.svg", category: "appearance" },
-  { en: "Grey hair", pt: "Cabelo grisalho", image: "/images/grey-hair.svg", category: "appearance" },
-  { en: "Long hair", pt: "Cabelo comprido", image: "/images/long-hair.svg", category: "appearance" },
-  { en: "Short hair", pt: "Cabelo curto", image: "/images/short-hair.svg", category: "appearance" },
-  { en: "Tall", pt: "Alto", image: "/images/tall.svg", category: "appearance" },
-  { en: "Short", pt: "Baixo", image: "/images/short.svg", category: "appearance" },
-  { en: "Brown eyes", pt: "Olhos castanhos", image: "/images/brown-eyes.svg", category: "appearance" },
-  { en: "Brown hair", pt: "Cabelo castanho", image: "/images/brown-hair.svg", category: "appearance" },
-  { en: "Young", pt: "Jovem", image: "/images/young.svg", category: "appearance" },
-  { en: "Old", pt: "Velho", image: "/images/old.svg", category: "appearance" },
-  { en: "Weak", pt: "Fraco", image: "/images/weak.svg", category: "appearance" },
-  { en: "Strong", pt: "Forte", image: "/images/strong.svg", category: "appearance" },
-  { en: "Beautiful", pt: "Bonito(a)", image: "/images/beautiful.svg", category: "appearance" },
-  { en: "Ugly", pt: "Feio(a)", image: "/images/ugly.svg", category: "appearance" },
+  // Unidade 1 - Transportes e profissões
+  { en: "Bicycle", pt: "Bicicleta", image: "/images/bicycle.svg", category: "transport" },
+  { en: "Train", pt: "Trem", image: "/images/train.svg", category: "transport" },
+  { en: "Motorbike", pt: "Motocicleta", image: "/images/motorbike.svg", category: "transport" },
+  { en: "Helicopter", pt: "Helicóptero", image: "/images/helicopter.svg", category: "transport" },
+  { en: "Rocket", pt: "Foguete", image: "/images/rocket.svg", category: "transport" },
+  { en: "Truck", pt: "Caminhão", image: "/images/truck.svg", category: "transport" },
+  { en: "Electric", pt: "Elétrico", image: "/images/electric.svg", category: "transport" },
+  { en: "Future", pt: "Futuro", image: "/images/future.svg", category: "transport" },
+  { en: "Astronaut", pt: "Astronauta", image: "/images/astronaut.svg", category: "transport" },
+  { en: "Police Officer", pt: "Policial", image: "/images/police-officer.svg", category: "transport" },
+  { en: "Firefighter", pt: "Bombeiro", image: "/images/firefighter.svg", category: "transport" },
+  { en: "Teacher", pt: "Professor(a)", image: "/images/teacher.svg", category: "transport" },
+  { en: "Clown", pt: "Palhaço", image: "/images/clown.svg", category: "transport" },
+  { en: "Fisherman", pt: "Pescador", image: "/images/fisherman.svg", category: "transport" },
+  { en: "Nurse", pt: "Enfermeiro(a)", image: "/images/nurse.svg", category: "transport" },
+  { en: "Doctor", pt: "Médico(a)", image: "/images/doctor.svg", category: "transport" },
+  { en: "Driver", pt: "Motorista", image: "/images/driver.svg", category: "transport" },
+  { en: "Dentist", pt: "Dentista", image: "/images/dentist.svg", category: "transport" },
 
-  // Unidade 2 - Casa e objetos
-  { en: "Upstairs", pt: "Andar de cima", image: "/images/upstairs.svg", category: "house" },
-  { en: "Downstairs", pt: "Andar de baixo", image: "/images/downstairs.svg", category: "house" },
-  { en: "Basement", pt: "Porão", image: "/images/basement.svg", category: "house" },
-  { en: "Floor", pt: "Piso/andar", image: "/images/floor.svg", category: "house" },
-  { en: "Lift", pt: "Elevador", image: "/images/lift.svg", category: "house" },
-  { en: "Internet", pt: "Internet", image: "/images/internet.svg", category: "house" },
-  { en: "Fan", pt: "Ventilador", image: "/images/fan.svg", category: "house" },
-  { en: "Shower", pt: "Chuveiro", image: "/images/shower.svg", category: "house" },
-  { en: "Stairs", pt: "Escadas", image: "/images/stairs.svg", category: "house" },
-  { en: "Broom", pt: "Vassoura", image: "/images/broom.svg", category: "house" },
-  { en: "Board games", pt: "Jogos de tabuleiro", image: "/images/board-games.svg", category: "house" },
-  { en: "Tall apartment building", pt: "Prédio alto", image: "/images/tall-apartment-building.svg", category: "house" },
-  { en: "Water", pt: "Água", image: "/images/water.svg", category: "house" },
-  { en: "Plants", pt: "Plantas", image: "/images/plants.svg", category: "house" },
-  { en: "Animals", pt: "Animais", image: "/images/animals.svg", category: "house" },
+  // Unidade 2 - Lugares, esportes e profissões
+  { en: "Engineer", pt: "Engenheiro(a)", image: "/images/engineer.svg", category: "community" },
+  { en: "Journalist", pt: "Jornalista", image: "/images/journalist.svg", category: "community" },
+  { en: "Actor", pt: "Ator", image: "/images/actor.svg", category: "community" },
+  { en: "Actress", pt: "Atriz", image: "/images/actress.svg", category: "community" },
+  { en: "Waiter", pt: "Garçom", image: "/images/waiter.svg", category: "community" },
+  { en: "Waitress", pt: "Garçonete", image: "/images/waitress.svg", category: "community" },
+  { en: "Hotel", pt: "Hotel", image: "/images/hotel.svg", category: "community" },
+  { en: "University", pt: "Universidade", image: "/images/university.svg", category: "community" },
+  { en: "Footballer", pt: "Jogador de futebol", image: "/images/footballer.svg", category: "community" },
+  { en: "Robot", pt: "Robô", image: "/images/robot.svg", category: "community" },
+  { en: "Swimming", pt: "Natação", image: "/images/swimming.svg", category: "community" },
+  { en: "Volleyball", pt: "Vôlei", image: "/images/volleyball.svg", category: "community" },
+  { en: "Basketball", pt: "Basquete", image: "/images/basketball.svg", category: "community" },
+  { en: "Airport", pt: "Aeroporto", image: "/images/airport.svg", category: "community" },
+  { en: "Park", pt: "Parque", image: "/images/park.svg", category: "community" },
+  { en: "Ride", pt: "Passeio", image: "/images/ride.svg", category: "community" },
+  { en: "Passenger", pt: "Passageiro(a)", image: "/images/passenger.svg", category: "community" },
+  { en: "Circus", pt: "Circo", image: "/images/circus.svg", category: "community" },
 
-  // Unidade 3 - Tempo e arte
-  { en: "Day", pt: "Dia", image: "/images/day.svg", category: "time" },
-  { en: "Night", pt: "Noite", image: "/images/night.svg", category: "time" },
-  { en: "Aging", pt: "Envelhecimento", image: "/images/aging.svg", category: "time" },
-  { en: "Schedule", pt: "Agenda", image: "/images/schedule.svg", category: "time" },
-  { en: "Sandglass", pt: "Ampulheta", image: "/images/sandglass.svg", category: "time" },
-  { en: "Birthday", pt: "Aniversário", image: "/images/birthday.svg", category: "time" },
-  { en: "Pottery", pt: "Cerâmica", image: "/images/pottery.svg", category: "time" },
-  { en: "Architecture", pt: "Arquitetura", image: "/images/architecture.svg", category: "time" },
-  { en: "Sculpture", pt: "Escultura", image: "/images/sculpture.svg", category: "time" },
-  { en: "Maths", pt: "Matemática", image: "/images/maths.svg", category: "time" },
-  { en: "Sport", pt: "Esporte", image: "/images/sport.svg", category: "time" },
-
-  // Unidade 4 - Comida e ações
-  { en: "Picnic", pt: "Piquenique", image: "/images/picnic.svg", category: "food" },
-  { en: "Cheese", pt: "Queijo", image: "/images/cheese.svg", category: "food" },
-  { en: "Glass", pt: "Copo", image: "/images/glass.svg", category: "food" },
-  { en: "Lemonade", pt: "Limonada", image: "/images/lemonade.svg", category: "food" },
-  { en: "Butter", pt: "Manteiga", image: "/images/butter.svg", category: "food" },
-  { en: "Spoon", pt: "Colher", image: "/images/spoon.svg", category: "food" },
-  { en: "Sandwich", pt: "Sanduíche", image: "/images/sandwich.svg", category: "food" },
-  { en: "Plate", pt: "Prato", image: "/images/plate.svg", category: "food" },
-  { en: "Fork", pt: "Garfo", image: "/images/fork.svg", category: "food" },
-  { en: "Salad", pt: "Salada", image: "/images/salad.svg", category: "food" },
-  { en: "Bowl", pt: "Tigela", image: "/images/bowl.svg", category: "food" },
-  { en: "Knife", pt: "Faca", image: "/images/knife.svg", category: "food" },
-  { en: "Dance", pt: "Dançar", image: "/images/dance.svg", category: "food" },
-  { en: "Monday", pt: "Segunda-feira", image: "/images/monday.svg", category: "food" },
-  { en: "Wednesday", pt: "Quarta-feira", image: "/images/wednesday.svg", category: "food" },
-  { en: "Read", pt: "Ler", image: "/images/read.svg", category: "food" },
-  { en: "Roast", pt: "Assar", image: "/images/roast.svg", category: "food" },
-  { en: "Heat", pt: "Aquecer", image: "/images/heat.svg", category: "food" },
-  { en: "Grind", pt: "Moer", image: "/images/grind.svg", category: "food" },
-  { en: "Brew", pt: "Fermentar/Preparar", image: "/images/brew.svg", category: "food" },
-  { en: "Age", pt: "Envelhecer", image: "/images/age.svg", category: "food" }
+  // Unidade 3 - Família, saúde e lugares
+  { en: "Ambulance", pt: "Ambulância", image: "/images/ambulance.svg", category: "daily" },
+  { en: "Transport", pt: "Transporte", image: "/images/transport.svg", category: "daily" },
+  { en: "Uncle", pt: "Tio", image: "/images/uncle.svg", category: "daily" },
+  { en: "Aunt", pt: "Tia", image: "/images/aunt.svg", category: "daily" },
+  { en: "Relatives", pt: "Parentes", image: "/images/relatives.svg", category: "daily" },
+  { en: "Parents", pt: "Pais", image: "/images/parents.svg", category: "daily" },
+  { en: "Hospital", pt: "Hospital", image: "/images/hospital.svg", category: "daily" },
+  { en: "School", pt: "Escola", image: "/images/school.svg", category: "daily" },
+  { en: "Party", pt: "Festa", image: "/images/party.svg", category: "daily" },
+  { en: "Honey", pt: "Mel", image: "/images/honey.svg", category: "daily" },
+  { en: "Garlic", pt: "Alho", image: "/images/garlic.svg", category: "daily" },
+  { en: "Sore Throat", pt: "Dor de garganta", image: "/images/sore-throat.svg", category: "daily" },
+  { en: "Restroom", pt: "Banheiro", image: "/images/restroom.svg", category: "daily" },
+  { en: "World", pt: "Mundo", image: "/images/world.svg", category: "daily" },
+  { en: "Castle", pt: "Castelo", image: "/images/castle.svg", category: "daily" },
+  { en: "Library", pt: "Biblioteca", image: "/images/library.svg", category: "daily" }
 ];
 
 // Função para gerar imagem placeholder baseada na palavra
@@ -93,18 +71,16 @@ export const generatePlaceholderImage = (word, width = 400, height = 300) => {
   
   // Gradient de fundo baseado na categoria
   const gradients = {
-    appearance: ['#667eea', '#764ba2'],
-    house: ['#f093fb', '#f5576c'],
-    time: ['#4facfe', '#00f2fe'],
-    food: ['#43e97b', '#38f9d7']
+    transport: ['#4facfe', '#00f2fe'],
+    community: ['#667eea', '#764ba2'],
+    daily: ['#43e97b', '#38f9d7']
   };
   
   // Emojis por categoria
   const categoryEmojis = {
-    appearance: ['👤', '👁️', '💇', '🧔', '👶', '👴'],
-    house: ['🏠', '🪜', '🚿', '🌟', '🎲', '🪴'],
-    time: ['⏰', '🌅', '🌙', '📅', '⏳', '🎂'],
-    food: ['🍽️', '🥪', '🧀', '🥗', '🍴', '📚']
+    transport: ['🚲', '🚆', '🚀', '👮', '🚒', '👩‍⚕️'],
+    community: ['🏨', '⚽', '🤖', '✈️', '🎪', '🎓'],
+    daily: ['🚑', '👪', '🏥', '🏫', '🍯', '🏰']
   };
   
   const wordData = wordsData.find(w => w.en.toLowerCase() === word.toLowerCase());
